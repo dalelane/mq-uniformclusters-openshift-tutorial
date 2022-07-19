@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mq-uniform-cluster-ini-cm
+  namespace: uniform-cluster
+data:
+  config.ini: |-
+    AutoCluster:
+       Repository2Conname=uniform-cluster-qm1-ibm-mq.uniform-cluster.svc(1414)
+       Repository2Name=QM1
+       Repository1Conname=uniform-cluster-qm2-ibm-mq.uniform-cluster.svc(1414)
+       Repository1Name=QM2
+       ClusterName=DEMOCLUSTER
+       Type=Uniform

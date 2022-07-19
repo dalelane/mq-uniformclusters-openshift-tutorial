@@ -1,0 +1,139 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ccdt
+  namespace: uniform-cluster
+data:
+  ibm-mq-ccdt.json: |-
+    {
+        "channel": [
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm1-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "DEMOCLUSTER"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          },
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm2-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "DEMOCLUSTER"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          },
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm3-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "DEMOCLUSTER"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          },
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm4-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "DEMOCLUSTER"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          },
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm1-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "QM1"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          },
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm2-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "QM2"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          },
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm3-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "QM3"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          },
+          {
+            "name": "DEF.SVRCONN",
+            "clientConnection": {
+              "connection": [
+                {
+                  "host": "uniform-cluster-qm4-ibm-mq.uniform-cluster",
+                  "port": 1414
+                }
+              ],
+              "queueManager": "QM4"
+            },
+            "transmissionSecurity": {
+              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
+            },
+            "type": "clientConnection"
+          }
+        ]
+      }

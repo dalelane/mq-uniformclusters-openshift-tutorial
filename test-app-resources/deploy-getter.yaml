@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app-getter
+  namespace: uniform-cluster
+  labels:
+    app: jms-getter
+spec:
+  replicas: 21
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 20%
+  selector:
+    matchLabels:
+      app: jms-getter
+  template:
+    metadata:
+      labels:
+        app: jms-getter
+    spec:
+      volumes:
+        - name: ccdtfile
+          configMap:
+            name: ccdt
+        - name: truststore
+          secret:
+            secretName: jms-client-truststore
+        - name: keystore
+          secret:
+            secretName: jms-getter-keystore
+      containers:
+          - name: java
+            image: image-registry.openshift-image-registry.svc:5000/uniform-cluster/jmstestapps:2
+            imagePullPolicy: IfNotPresent
+            command: ["java"]
+            args: ["-cp", "/opt/app/mq-jms-ccdt-0.0.2.jar", "com.ibm.clientengineering.mq.samples.Getter"]
+            volumeMounts:
+              - name: ccdtfile
+                mountPath: /opt/app/ibm-mq-ccdt.json
+                subPath: ibm-mq-ccdt.json
+              - name: truststore
+                mountPath: /opt/app/truststore.jks
+                subPath: ca.jks
+              - name: keystore
+                mountPath: /opt/app/keystore.jks
+                subPath: client.jks

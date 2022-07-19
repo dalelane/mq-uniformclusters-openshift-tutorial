@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mq-uniform-cluster-qm2-mqsc-cm
+  namespace: uniform-cluster
+data:
+  qm2-config.mqsc: |-
+    alter chl(DEMOCLUSTER_QM1) chltype(CLUSSDR) conname('uniform-cluster-qm1-ibm-mq.uniform-cluster.svc(1414)')
+    alter chl(DEMOCLUSTER_QM2) chltype(CLUSRCVR) conname('uniform-cluster-qm2-ibm-mq.uniform-cluster.svc(1414)')
