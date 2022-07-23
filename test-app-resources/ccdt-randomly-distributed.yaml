@@ -18,6 +18,11 @@ data:
               ],
               "queueManager": "DEMOCLUSTER"
             },
+            "connectionManagement":
+            {
+              "clientWeight": 1,
+              "affinity": "none"
+            },
             "transmissionSecurity": {
               "cipherSpecification": "ANY_TLS12_OR_HIGHER"
             },
@@ -33,6 +38,11 @@ data:
                 }
               ],
               "queueManager": "DEMOCLUSTER"
+            },
+            "connectionManagement":
+            {
+              "clientWeight": 1,
+              "affinity": "none"
             },
             "transmissionSecurity": {
               "cipherSpecification": "ANY_TLS12_OR_HIGHER"
@@ -50,21 +60,10 @@ data:
               ],
               "queueManager": "DEMOCLUSTER"
             },
-            "transmissionSecurity": {
-              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
-            },
-            "type": "clientConnection"
-          },
-          {
-            "name": "DEF.SVRCONN",
-            "clientConnection": {
-              "connection": [
-                {
-                  "host": "uniform-cluster-qm4-ibm-mq.uniform-cluster",
-                  "port": 1414
-                }
-              ],
-              "queueManager": "DEMOCLUSTER"
+            "connectionManagement":
+            {
+              "clientWeight": 1,
+              "affinity": "none"
             },
             "transmissionSecurity": {
               "cipherSpecification": "ANY_TLS12_OR_HIGHER"
@@ -82,6 +81,11 @@ data:
               ],
               "queueManager": "QM1"
             },
+            "connectionManagement":
+            {
+              "clientWeight": 1,
+              "affinity": "none"
+            },
             "transmissionSecurity": {
               "cipherSpecification": "ANY_TLS12_OR_HIGHER"
             },
@@ -97,6 +101,11 @@ data:
                 }
               ],
               "queueManager": "QM2"
+            },
+            "connectionManagement":
+            {
+              "clientWeight": 1,
+              "affinity": "none"
             },
             "transmissionSecurity": {
               "cipherSpecification": "ANY_TLS12_OR_HIGHER"
@@ -114,21 +123,10 @@ data:
               ],
               "queueManager": "QM3"
             },
-            "transmissionSecurity": {
-              "cipherSpecification": "ANY_TLS12_OR_HIGHER"
-            },
-            "type": "clientConnection"
-          },
-          {
-            "name": "DEF.SVRCONN",
-            "clientConnection": {
-              "connection": [
-                {
-                  "host": "uniform-cluster-qm4-ibm-mq.uniform-cluster",
-                  "port": 1414
-                }
-              ],
-              "queueManager": "QM4"
+            "connectionManagement":
+            {
+              "clientWeight": 1,
+              "affinity": "none"
             },
             "transmissionSecurity": {
               "cipherSpecification": "ANY_TLS12_OR_HIGHER"

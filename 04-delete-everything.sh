@@ -9,9 +9,9 @@ if [[ $BASH_SOURCE = */* ]]; then
   cd -- "${BASH_SOURCE%/*}/" || exit
 fi
 
-oc delete --ignore-not-found=true -f ./test-app-resources
-oc delete --ignore-not-found=true -f ./mq-resources-2
-oc delete --ignore-not-found=true -f ./mq-resources
+oc delete -n uniform-cluster --ignore-not-found=true -f ./test-app-resources
+oc delete -n uniform-cluster --ignore-not-found=true -f ./mq-resources-2
+oc delete -n uniform-cluster --ignore-not-found=true -f ./mq-resources
 
 oc delete ns uniform-cluster  --ignore-not-found=true
 

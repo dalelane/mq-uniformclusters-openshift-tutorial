@@ -31,14 +31,13 @@ spec:
             secretName: jms-putter-keystore
       containers:
           - name: java
-            image: image-registry.openshift-image-registry.svc:5000/uniform-cluster/jmstestapps:2
+            image: image-registry.openshift-image-registry.svc:5000/uniform-cluster/jmstestapps:3
             imagePullPolicy: IfNotPresent
             command: ["java"]
             args: ["-cp", "/opt/app/mq-jms-ccdt-0.0.2.jar", "com.ibm.clientengineering.mq.samples.Putter"]
             volumeMounts:
               - name: ccdtfile
-                mountPath: /opt/app/ibm-mq-ccdt.json
-                subPath: ibm-mq-ccdt.json
+                mountPath: /opt/app/config
               - name: truststore
                 mountPath: /opt/app/truststore.jks
                 subPath: ca.jks

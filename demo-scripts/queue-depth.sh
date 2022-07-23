@@ -21,9 +21,9 @@ while true
         qm3_msgs=$(get_curdepth 'uniform-cluster-qm3-ibm-mq-0')
         qm4_msgs=$(get_curdepth 'uniform-cluster-qm4-ibm-mq-0')
         clear
-        printf "$HIGHLIGHT_ON=================================================$HIGHLIGHT_OFF\n"
-        printf "$HIGHLIGHT_ON Messages on the APPQ1 queue instance hosted on: $HIGHLIGHT_OFF\n"
-        printf "$HIGHLIGHT_ON=================================================$HIGHLIGHT_OFF\n"
+        printf "$HIGHLIGHT_ON============================================$HIGHLIGHT_OFF\n"
+        printf "$HIGHLIGHT_ON number of messages on the queue hosted on: $HIGHLIGHT_OFF\n"
+        printf "$HIGHLIGHT_ON============================================$HIGHLIGHT_OFF\n"
         echo "QM1 - ${qm1_msgs}"
         echo "QM2 - ${qm2_msgs}"
         echo "QM3 - ${qm3_msgs}"

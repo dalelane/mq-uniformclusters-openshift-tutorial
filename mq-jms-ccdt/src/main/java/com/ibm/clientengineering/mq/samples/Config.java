@@ -3,7 +3,7 @@ package com.ibm.clientengineering.mq.samples;
 public class Config {
     public static final String QMGRNAME = "*DEMOCLUSTER";
     public static final String QUEUE = "APPQ1";
-    public static final String CCDT_LOCATION = "/opt/app/ibm-mq-ccdt.json";
+    public static final String CCDT_LOCATION = "/opt/app/config/ibm-mq-ccdt.json";
 
     // OpenShift will give the pod a unique hostname, so we can use this
     //  as a proxy for a unique client id

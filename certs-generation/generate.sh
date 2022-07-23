@@ -62,5 +62,5 @@ docker run \
 
 
 echo "----------------------------------------------------------------------"
-echo "Certificates have been generated in $(pwd)/certs"
+echo "Certificates have been generated in ./certs-generation/certs"
 echo "----------------------------------------------------------------------"

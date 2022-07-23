@@ -37,30 +37,8 @@ wait_for_queue_manager () {
 }
 wait_for_queue_manager uniform-cluster-qm4
 
-printf "$HIGHLIGHT_ON-----------------------------------------------------------------------$HIGHLIGHT_OFF\n"
-printf "$HIGHLIGHT_ON Updating JMS client applications                                      $HIGHLIGHT_OFF\n"
-printf "$HIGHLIGHT_ON-----------------------------------------------------------------------$HIGHLIGHT_OFF\n"
-
 printf "$HIGHLIGHT_ON> Updating CCDT with additional queue manager details $HIGHLIGHT_OFF\n"
-oc apply -f ./test-app-resources-2/ccdt.yaml
-
-printf "$HIGHLIGHT_ON> Rolling update of JMS apps $HIGHLIGHT_OFF\n"
-version=$(oc get configmap ccdt -n uniform-cluster -o jsonpath='{.metadata.resourceVersion}')
-# This restarts the JMS apps, so that the restarted app
-#  can reflect changes to the CCDT ConfigMap.
-#
-# The restarts are performed in a rolling update, so there are always
-#  some instances in a running state.
-oc patch \
-    deployment test-app-getter \
-    -n uniform-cluster \
-    -p '{"spec":{ "template":{ "metadata":{ "annotations": { "ccdt-version": "'$version'" }}}}}'
-sleep 10
-oc patch \
-    deployment test-app-putter \
-    -n uniform-cluster \
-    -p '{"spec":{ "template":{ "metadata":{ "annotations": { "ccdt-version": "'$version'" }}}}}'
-
+oc apply -f ./test-app-resources-2/ccdt-randomly-distributed.yaml
 
 printf "$HIGHLIGHT_ON-----------------------------------------------------------------------$HIGHLIGHT_OFF\n"
 printf "$HIGHLIGHT_ON Queue manager addition complete                                       $HIGHLIGHT_OFF\n"
